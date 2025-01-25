@@ -30,7 +30,7 @@
     .navbar ul {
       list-style: none;
       display: flex;
-      margin: 0;
+      margin-right: 5px;
       padding: 0;
     }
     .navbar ul li {
@@ -155,14 +155,16 @@
     /* Slide Bar Styles */
     .slide-bar {
       position: fixed;
-      left: -250px; /* Hidden by default */
+      right: -350px; /* Hidden by default */
       top: 0;
-      width: 250px;
+      width: 350px;
       height: 100%;
-      background: rgba(15, 52, 96, 0.9); /* Semi-transparent */
+      padding-top: 5%;
+      background: rgba(15, 51, 96, 0.913); /* Semi-transparent */
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-      transition: left 0.3s ease;
       z-index: 1000;
+      animation: both ;
+      
     }
     .slide-bar h2 {
       text-align: center;
@@ -181,20 +183,38 @@
       text-decoration: none;
       font-size: 18px;
     }
+    .slide-bar ul li a:hover {
+      color: #abadff;
+    }
     .toggle-button {
       position: fixed;
-      left: 15px;
+      right: 15px;
       top: 50px;
-      background: #a6d7f7;
+      margin-left: 20px;
+      background: #2c8edea5;
       border: none;
       border-radius: 5px;
       padding: 8px;
+      padding-right: 10px;
+      padding-left: 10px;
       cursor: pointer;
       z-index: 1001;
       transition: background 0.3s;
     }
     .toggle-button:hover {
       background: #00a3cc;
+    }
+    @media (max-width: 968px) {
+      
+      .navbar ul{
+        display: none;
+      }
+    }
+    @media (min-width: 970px) {
+      
+      .toggle-button{
+        display: none;
+      }
     }
   </style>
 </head>
@@ -278,12 +298,14 @@
   <script>
     function toggleSlideBar() {
       const slideBar = document.getElementById('slideBar');
-      if (slideBar.style.left === '0px') {
-        slideBar.style.left = '-250px'; 
+      if (slideBar.style.right === '0px') {
+        slideBar.style.right = '-350px'; 
       } else {
-        slideBar.style.left = '0px'; 
+        slideBar.style.right = '0px'; 
+        
       }
     }
   </script>
+  
 </body>
 </html>
